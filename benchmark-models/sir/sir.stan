@@ -57,5 +57,5 @@ model {
     stoi_hat[n] ~ poisson(y[n - 1, 1] - y[n, 1]);
   
 //  B_hat ~ lognormal(log(col(to_matrix(y), 4)), 0.15);
-  target += lognormal_lpdf(B_hat | log(col(to_matrix(y), 4)), 0.15)
+  target += lognormal_lpdf(B_hat | log(col(to_matrix(y), 4)), 0.15);
 }
