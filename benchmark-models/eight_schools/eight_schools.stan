@@ -19,5 +19,5 @@ model {
   tau ~ cauchy(0, 5);
   theta_tilde ~ normal(0, 1);
 //  y ~ normal(theta, sigma);
-  target += normal_lpdf(y | theta, sigma);
+  target += phi * normal_lpdf(y | theta, sigma);
 }
