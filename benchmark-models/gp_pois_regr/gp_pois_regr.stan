@@ -19,10 +19,14 @@ transformed parameters {
   }
 }
 model {
-  rho ~ gamma(25, 4);
-  alpha ~ normal(0, 2);
-  f_tilde ~ normal(0, 1);
+//  rho ~ gamma(25, 4);
+ // alpha ~ normal(0, 2);
+ // f_tilde ~ normal(0, 1);
   
+  target += normal_lpdf(f_tilde | 0, 1);
+  target += gamma_lpdf(rho | 25, 4);
+  target += normal_lpdf(alpha | 0, 2);
+
  // k ~ poisson_log(f);
   target += phi * poisson_log_lpmf(k | f);
 }

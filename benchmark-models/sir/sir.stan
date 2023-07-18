@@ -47,11 +47,17 @@ transformed parameters {
   }
 }
 model {
-  beta ~ cauchy(0, 2.5);
-  gamma ~ cauchy(0, 1);
-  xi ~ cauchy(0, 25);
-  delta ~ cauchy(0, 1);
+ // beta ~ cauchy(0, 2.5);
+ // gamma ~ cauchy(0, 1);
+ // xi ~ cauchy(0, 25);
+ // delta ~ cauchy(0, 1);
   
+  target += cauchy_lpdf(beta | 0, 2.5);
+  target += cauchy_lpdf(gamma | 0, 1);
+  target += cauchy_lpdf(xi | 0, 25);
+  target += cauchy_lpdf(delta | 0, 1);
+
+
   stoi_hat[1] ~ poisson(y0[1] - y[1, 1]);
   for (n in 2 : N_t) 
     stoi_hat[n] ~ poisson(y[n - 1, 1] - y[n, 1]);

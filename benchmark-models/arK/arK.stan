@@ -10,10 +10,14 @@ parameters {
   real<lower=0> sigma;
 }
 model {
-  alpha ~ normal(0, 10);
-  beta ~ normal(0, 10);
-  sigma ~ cauchy(0, 2.5);
+  //alpha ~ normal(0, 10);
+  //beta ~ normal(0, 10);
+  //sigma ~ cauchy(0, 2.5);
   
+  target += normal_lpdf(alpha | 0, 10);
+  target += normal_lpdf(beta | 0, 10);
+  target += cauchy_lpdf(sigma | 0, 2.5);
+
   for (t in (K + 1) : T) {
     real mu;
     mu = alpha;
