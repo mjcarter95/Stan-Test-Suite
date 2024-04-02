@@ -14,14 +14,15 @@ model {
                      + diag_matrix(rep_vector(sigma, N));
   matrix[N, N] L_cov = cholesky_decompose(cov);
   
-//  rho ~ gamma(25, 4);
- // alpha ~ normal(0, 2);
- // sigma ~ normal(0, 1);
+  //  rho ~ gamma(25, 4);
+  // alpha ~ normal(0, 2);
+  // sigma ~ normal(0, 1);
   
   target += gamma_lpdf(rho | 25, 4);
   target += normal_lpdf(alpha | 0, 2);
   target += normal_lpdf(sigma | 0, 1);
-
-//  y ~ multi_normal_cholesky(rep_vector(0, N), L_cov);
+  
+  //  y ~ multi_normal_cholesky(rep_vector(0, N), L_cov);
   target += phi * multi_normal_cholesky_lpdf(y | rep_vector(0, N), L_cov);
 }
+

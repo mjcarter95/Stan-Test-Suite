@@ -2,7 +2,7 @@ data {
   int<lower=0> T;
   array[T] real y;
   real<lower=0> sigma1;
-  real<lower=0,upper=1> phi;
+  real<lower=0, upper=1> phi;
 }
 parameters {
   real mu;
@@ -17,6 +17,7 @@ model {
     sigma[t] = sqrt(alpha0 + alpha1 * square(y[t - 1] - mu)
                     + beta1 * square(sigma[t - 1]));
   
- // y ~ normal(mu, sigma);
+  // y ~ normal(mu, sigma);
   target += phi * normal_lpdf(y | mu, sigma);
 }
+
