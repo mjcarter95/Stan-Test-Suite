@@ -13,8 +13,9 @@ model {
   target += normal_lpdf(mu | 0, 2);
   target += beta_lpdf(theta | 2, 2);
   
-  for (n in 1 : N) 
+  for (n in 1 : N) {
     target += log_mix(theta, phi * normal_lpdf(y[n] | mu[1], sigma[1]),
                       phi * normal_lpdf(y[n] | mu[2], sigma[2]));
+  }
 }
 

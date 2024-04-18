@@ -22,8 +22,9 @@ model {
     real mu;
     mu = alpha;
     
-    for (k in 1 : K) 
+    for (k in 1 : K) {
       mu = mu + beta[k] * y[t - k];
+    }
     
     target += phi * normal_lpdf(y[t] | mu, sigma);
   }

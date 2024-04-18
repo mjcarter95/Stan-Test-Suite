@@ -18,18 +18,3 @@ model {
   }
 }
 
-Warning in '/mnt/43d3396d-0fde-4593-b19b-56bfdcb2a927/University/stan/test_suite/benchmark-models/student_t/student_t.stan', line 3, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.32.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in '/mnt/43d3396d-0fde-4593-b19b-56bfdcb2a927/University/stan/test_suite/benchmark-models/student_t/student_t.stan', line 4, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.32.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc
-Warning in '/mnt/43d3396d-0fde-4593-b19b-56bfdcb2a927/University/stan/test_suite/benchmark-models/student_t/student_t.stan', line 8, column 4: Declaration
-    of arrays by placing brackets after a variable name is deprecated and
-    will be removed in Stan 2.32.0. Instead use the array keyword before the
-    type. This can be changed automatically using the auto-format flag to
-    stanc

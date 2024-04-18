@@ -11,8 +11,9 @@ parameters {
 }
 transformed parameters {
   array[J] real theta;
-  for (j in 1 : J) 
+  for (j in 1 : J) {
     theta[j] = mu + tau * theta_tilde[j];
+  }
 }
 model {
   //mu ~ normal(0, 5);

@@ -13,9 +13,10 @@ parameters {
 model {
   array[T] real sigma;
   sigma[1] = sigma1;
-  for (t in 2 : T) 
+  for (t in 2 : T) {
     sigma[t] = sqrt(alpha0 + alpha1 * square(y[t - 1] - mu)
                     + beta1 * square(sigma[t - 1]));
+  }
   
   // y ~ normal(mu, sigma);
   target += phi * normal_lpdf(y | mu, sigma);

@@ -58,14 +58,11 @@ model {
   target += cauchy_lpdf(delta | 0, 1);
   
   stoi_hat[1] ~ poisson(y0[1] - y[1, 1]);
-  for (n in 2 : N_t) 
+  for (n in 2 : N_t) {
     stoi_hat[n] ~ poisson(y[n - 1, 1] - y[n, 1]);
+  }
   
   //  B_hat ~ lognormal(log(col(to_matrix(y), 4)), 0.15);
   target += lognormal_lpdf(B_hat | log(col(to_matrix(y), 4)), 0.15);
 }
 
-Warning in '/mnt/43d3396d-0fde-4593-b19b-56bfdcb2a927/University/stan/test_suite/benchmark-models/sir/sir.stan', line 46, column 8: integrate_ode_rk45
-    is deprecated and will be removed in Stan 3.0. Use ode_rk45 instead. 
-    The new interface is slightly different, see:
-    https://mc-stan.org/users/documentation/case-studies/convert_odes.html
